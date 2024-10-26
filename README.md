@@ -1,6 +1,8 @@
 # EDT: An Efficient Diffusion Transformer Framework Inspired by Human-like Sketching
 
-### [Paper](url-ling) | [![HuggingFace space](https://img.shields.io/badge/🤗-HuggingFace%20Space-cyan.svg)](https://huggingface.co/trenkey/EDT)
+### [Paper](url-ling) | [HuggingFace space](https://huggingface.co/trenkey/EDT)
+
+<!-- ### [Paper](url-ling) | [![HuggingFace space](https://img.shields.io/badge/🤗-HuggingFace%20Space-cyan.svg)](https://huggingface.co/trenkey/EDT) -->
 
 <!-- ## MDTv2: Faster Convergeence & Stronger performance
 **MDTv2 achieves superior image synthesis performance, e.g., a new SOTA FID score of 1.58 on the ImageNet dataset, and has more than 10× faster learning speed than the previous SOTA DiT.** -->
@@ -17,6 +19,12 @@ During training, MDT operates in the latent space to mask certain tokens. Then, 
 Experimental results show that MDTv2 achieves superior image synthesis performance, e.g., **a new SOTA FID score of 1.58 on the ImageNet dataset, and has more than 10× faster learning speed than the previous SOTA DiT**. 
 
 <img width="800" alt="image" src="figures/vis.jpg"> -->
+
+# Introduction
+
+Transformer-based Diffusion Probabilistic Models (DPMs) have shown more potential than CNN-based DPMs, yet their extensive computational requirements hinder widespread practical applications. To reduce the computation budget of transformer-based DPMs, this work proposes the **E**fficient **D**iffusion **T**ransformer (EDT) framework. The framework includes a lightweight-design diffusion model architecture, and a training-free Attention Modulation Matrix and its alternation arrangement in EDT inspired by human-like sketching. Additionally, we propose a token relation-enhanced masking training strategy tailored explicitly for EDT to augment its token relation learning capability.Our extensive experiments demonstrate the efficacy of EDT. The EDT framework reduces training and inference costs and surpasses existing transformer-based diffusion models in image synthesis performance, thereby achieving a significant overall enhancement. EDT achieved lower FID, EDT-S, EDT-B, and EDT-XL attained speed-ups of 3.93x, 2.84x, and 1.92x respectively in the training phase, and 2.29x, 2.29x, and 2.22x respectively in inference, compared to the corresponding sizes of MDTv2.
+
+<img width="800" alt="image" src="visualization.jpg">
 
 # Performance
 
@@ -102,7 +110,7 @@ python -m pip install git+https://github.com/sail-sg/Adan.git
 ### Training
 
 ```shell
-accelerate launch --multi_gpu --num_processes 8 --main_process_port 6001 train_mask_adan.py --results-dir /path/save/checkpoint --model EDT-S/2 --init-lr 5e-4 --feature-path /path/to/store/features --epochs 81
+accelerate launch --multi_gpu --num_processes 8 --main_process_port 6001 train_mask_adan.py --results-dir /path/save/checkpoint --model EDT-S/2 --init-lr 1e-3 --feature-path /path/to/store/features --epochs 81
 ```
 
 <!-- # Citation
